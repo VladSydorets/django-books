@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waitlist Landing Page</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <div class="text-left mb-4" style="max-width: 400px">
+        <h1 class="text-left fs-3">
+          Like Goodreads but <b>smarter</b> and more <b>personalized.</b>
+        </h1>
+
+        {% if error %}
+        <div class="alert alert-danger text-center" role="alert">
+          {{ error }}
+        </div>
+        {% endif %} {% if message %}
+        <div class="alert alert-success text-center" role="alert">
+          {{ message }}
+        </div>
+        {% endif %}
+
+        <div
+          class="card rounded rounded-5 px-4 py-3 mt-4"
+          style="max-width: 600px; margin: auto; padding: 20px"
+        >
+          <form
+            novalidate
+            method="post"
+            action=""
+            class="d-flex flex-column justify-content-start"
+            style="max-width: 500px"
+          >
+            {% csrf_token %}
+            <div class="text-dark fw-bold fs-3">Apply for early access</div>
+            <p>
+              We're inviting a small group of passionate readers to shape the
+              future of book discovery.
+            </p>
+
+            <div class="form mb-3 d-flex gap-3">
+              {{ form.email }}
+              <button type="submit" class="btn btn-primary rounded rounded-5">
+                Get Early Access
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
